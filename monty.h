@@ -55,10 +55,11 @@ extern gvar_t global;
 void _printerr(char *c);
 void openfile(char *name);
 void tokenize_and_execute(void);
+void execute(char *opcode, unsigned int line_number);
 void push(char *number_to_push);
-void pall(stack_t **stack, unsigned int lineNum);
-void execute(char *opcode, unsigned int lineNum);
 void checkNum(char *str);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
 void push_to_list(int n);
 void free_list(void);
 
