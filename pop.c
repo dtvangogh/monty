@@ -15,7 +15,7 @@ void pop(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head);
+	temp = (*head); /** answer correct without temp, but memory errors without it **/
 	*head = (*head)->next;
 	free(temp);
 	if (*head != NULL)
