@@ -3,7 +3,7 @@
 /**
  * stk_swap - swaps first two elements on the stack
  * @head: head
- * @ln: line number where opcode is located
+ * @line_number: line number where opcode is located
  */
 
 void swap(stack_t **head, unsigned int line_number)
@@ -24,5 +24,4 @@ void swap(stack_t **head, unsigned int line_number)
 	t2->n = t1_number;
 	free(t1);
 	free(t2);
-	free(t1_number);
 }
