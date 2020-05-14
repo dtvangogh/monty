@@ -1,3 +1,6 @@
-	push 10
-push 20
+push 1
+pint
+push 2
+pint
+push 3
 pint
