@@ -16,12 +16,6 @@ void op_div(stack_t **head, unsigned int line_number)
 		free_list();
 		exit(EXIT_FAILURE);
 	}
-	if ((*head)->n == 0)
-	{
-		printf("L%d: division by zero\n", line_number);
-		free_list();
-		exit(EXIT_FAILURE);
-	}
 	temp = (*head);
 	temp2 = temp->next;
 	t1_value = temp->n;
