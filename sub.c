@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void add(stack_t **head, unsigned int line_number)
+void sub(stack_t **head, unsigned int line_number)
 {
 	int t1_value;
 	int t2_value;
-	int sum;
+	int subtract;
 	stack_t *temp;
 	stack_t *temp2;
 	stack_t *new_node;
@@ -27,7 +27,9 @@ void add(stack_t **head, unsigned int line_number)
 	temp2 = temp->next;
 	t1_value = temp->n;
 	t2_value = temp2->n;
-	sum = t1_value + t2_value;
+	subtract = t1_value - t2_value;
+	if (subtract < 0)
+		subtract = subtract * -1;
 
 	temp = (*head); /** answer correct without temp, but memory errors without it **/
 	*head = (*head)->next;
@@ -41,7 +43,7 @@ void add(stack_t **head, unsigned int line_number)
 	if (*head != NULL)
 		(*head)->prev = NULL;
 
-	new_node->n = sum;
+	new_node->n = subtract;
 	new_node->prev = NULL;
 
 	if (global.head == NULL)
