@@ -5,15 +5,18 @@
  * @stack: Double pointer to the head of the stack
  * @lineNum: The current line numer being processed
  */
-void pall(stack_t **stack, unsigned int lineNum)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *item;
-
-	(void)(lineNum);
-
+	stack_t *head;
+	(void) line_number;
 	if (stack == NULL)
 		return;
+	head = *stack;
 
-	for (item = *stack; item; item = item->next)
-		printf("%d\n", item->n);
+	while (head != NULL)
+	{
+		printf("%d\n", head->n);
+		head = head->next;
+	}
+
 }
