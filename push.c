@@ -6,12 +6,29 @@
  */
 void push(char *number_to_push)
 {
+	int i = 0;
 	if (number_to_push == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", global.line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
+
+	if (number_to_push[0] == '-')
+		i++;
+
+	while (number_to_push[i] != '\0')
+	{
+		if (number_to_push[i] < 48 || number_to_push[i] > 57)
+		{
+			dprintf(STDERR_FILENO, "L%u: usage: push integer\n",
+					global.line_number);
+			free_list();
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+
 	push_to_list(atoi(number_to_push));
 }
 
