@@ -10,7 +10,7 @@ void sub(stack_t **head, unsigned int line_number)
 	stack_t *new_node;
 
 	new_node = malloc(sizeof(stack_t));
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (head == NULL || (*head) == NULL || (*head)->next == NULL || (*head)->next->next == NULL)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
 		free_list();
