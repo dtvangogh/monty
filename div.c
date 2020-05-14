@@ -12,7 +12,7 @@ void op_div(stack_t **head, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't sub, stack too short\n", line_number);
+		printf("L%d: can't div, stack too short\n", line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
