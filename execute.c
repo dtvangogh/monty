@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
- * runopcode - Runs a given opcode, unless it is invalid
- * @opcode: The opcode to run
- * @line_number: The line number the opcode is on
+ * execute - executes function
+ * @opcode: The opcode
+ * @line_number: The line number the opcode is found
  */
 void execute(char *opcode, unsigned int line_number)
 {
