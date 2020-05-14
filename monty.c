@@ -11,10 +11,10 @@ gvar_t global;
  */
 int main(int argc, char **argv)
 {
+	FILE *file;
 	global.head = NULL;
 	global.line = NULL;
 	global.isStack = 1;
-	FILE *file;
 
 	if (argc != 2)
 	{
@@ -43,18 +43,13 @@ void tokenize_and_execute(void)
 	size_t len = 0;
 	char *opcode;
 	char *isolate_number;
-	char *number;
-	int i = 0;
-	int j = 0;
 
 	while ((read = getline(&global.line, &len, global.file)) != -1)
 	{
 		global.line_number++;
-		printf("global.line:%s\n", &*global.line);
 		isolate_number = strtok(global.line, "push \t\n");
 
 		opcode = strtok(global.line, " \t\n");
-		printf("comand:%s\n", &*opcode);
 		if (!opcode || opcode[0] == '#')
 			continue;
 		if (strcmp(opcode, "push") == 0)
