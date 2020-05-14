@@ -12,13 +12,13 @@ void op_div(stack_t **head, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't div, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
