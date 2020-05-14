@@ -9,7 +9,7 @@ void pop(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL)
 	{
-		dprintf(STDERR_FILENO, "L<%u>: can't pop an empty stack\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
