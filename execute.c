@@ -13,6 +13,8 @@ void execute(char *opcode, unsigned int line_number)
 		{"pint", pint},
 		{"no", nop},
 		{"nop", nop},
+		{"po", pop},
+
 		{NULL, NULL}
 	};
 

@@ -63,6 +63,7 @@ void pint(stack_t **head, unsigned int line_number);
 void push_to_list(int n);
 void free_list(void);
 void nop(stack_t **head, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
 
 
 #endif
