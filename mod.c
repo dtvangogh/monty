@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void mul(stack_t **head, unsigned int line_number)
+void mod(stack_t **head, unsigned int line_number)
 {
 	int t1_value;
 	int t2_value;
-	int product;
+	int modulus;
 	stack_t *temp;
 	stack_t *temp2;
 	stack_t *new_node;
@@ -12,7 +12,13 @@ void mul(stack_t **head, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't mul, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't mod, stack too short\n", line_number);
+		free_list();
+		exit(EXIT_FAILURE);
+	}
+	if ((*head)->n == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		free_list();
 		exit(EXIT_FAILURE);
 	}
@@ -20,7 +26,7 @@ void mul(stack_t **head, unsigned int line_number)
 	temp2 = temp->next;
 	t1_value = temp->n;
 	t2_value = temp2->n;
-	product = t1_value * t2_value;
+	modulus = t1_value % t2_value;
 
 	temp = (*head); /** answer correct without temp, but memory errors without it **/
 	*head = (*head)->next;
@@ -34,7 +40,7 @@ void mul(stack_t **head, unsigned int line_number)
 	if (*head != NULL)
 		(*head)->prev = NULL;
 
-	new_node->n = product;
+	new_node->n = modulus;
 	new_node->prev = NULL;
 
 	if (global.head == NULL)
