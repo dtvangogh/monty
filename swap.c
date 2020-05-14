@@ -22,4 +22,7 @@ void swap(stack_t **head, unsigned int line_number)
 	t1_number = t1->n;
 	t1->n = t2->n;
 	t2->n = t1_number;
+	free(t1);
+	free(t2);
+	free(t1_number);
 }
