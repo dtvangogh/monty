@@ -1,0 +1,54 @@
+#include "monty.h"
+
+void add(stack_t **head, unsigned int line_number)
+{
+	int t1_value;
+	int t2_value;
+	int sum;
+	stack_t *temp;
+	stack_t *temp2;
+	stack_t *new_node;
+
+	new_node = malloc(sizeof(stack_t));
+
+
+	if ((*head) == NULL || (*head)->next == NULL)
+	{
+		printf("L%d: can't add, stack too short\n", line_number);
+		free_list();
+		exit(EXIT_FAILURE);
+	}
+	temp = (*head);
+	temp2 = temp->next;
+	t1_value = temp->n;
+	t2_value = temp2->n;
+	sum = t1_value + t2_value;
+	temp = (*head); /** answer correct without temp, but memory errors without it **/
+	*head = (*head)->next;
+	free(temp);
+	if (*head != NULL)
+		(*head)->prev = NULL;
+
+	temp2 = (*head); /** answer correct without temp, but memory errors without it **/
+	*head = (*head)->next;
+	free(temp2);
+	if (*head != NULL)
+		(*head)->prev = NULL;
+
+	new_node->n = sum;
+	new_node->prev = NULL;
+
+	if (global.head == NULL)
+	{
+		new_node->next = NULL;
+		global.head = new_node;
+	}
+	else
+	{
+			new_node->next = global.head;
+			global.head->prev = new_node;
+			global.head = new_node;
+		}
+}
+
+

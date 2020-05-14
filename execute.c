@@ -15,7 +15,7 @@ void execute(char *opcode, unsigned int line_number)
 		{"nop", nop},
 		{"po", pop},
 		{"swa", swap},
-
+		{"add", add},
 		{NULL, NULL}
 	};
 
