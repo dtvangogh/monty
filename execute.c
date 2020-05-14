@@ -11,7 +11,7 @@ void execute(char *opcode, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"pall", pall},
 		{"pint", pint},
-		{"nop", nop},
+		{"no", nop},
 		{NULL, NULL}
 	};
 

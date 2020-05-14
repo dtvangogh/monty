@@ -50,6 +50,7 @@ void tokenize_and_execute(void)
 		isolate_number = strtok(global.line, "push \t\n");
 
 		opcode = strtok(global.line, " \t\n");
+		printf("opcode is:%s\n", &*opcode);
 		if (!opcode || opcode[0] == '#')
 			continue;
 		if (strcmp(opcode, "push") == 0)
