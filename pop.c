@@ -2,6 +2,7 @@
 /**
  * pop - remove the head
  * @head: pointer to doubly link list
+ *@line_number: line number of opcode
  * Return: pointer to the node or NULL
  */
 void pop(stack_t **head, unsigned int line_number)
@@ -15,7 +16,7 @@ void pop(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head); /** answer correct without temp, but memory errors without it **/
+	temp = (*head); /** answer correct without temp,memory errors without it **/
 	*head = (*head)->next;
 	free(temp);
 	if (*head != NULL)

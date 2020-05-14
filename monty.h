@@ -30,15 +30,16 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+		char *opcode;
+		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
  * struct gvar_s - struct for global variables
  * @file: The test file being used
  * @line: The current line being read
  * @line_number: The current line number of test file being read
- * @stack: The stack being used
+ * @head: The stack being used
+ *@opcode: the command
  */
 typedef struct gvar_s
 {
@@ -46,7 +47,6 @@ typedef struct gvar_s
 	int line_number;
 	stack_t *head;
 	char *line;
-	char isStack;
 	char *opcode;
 } gvar_t;
 

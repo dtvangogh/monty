@@ -55,5 +55,3 @@ void add(stack_t **head, unsigned int line_number)
 			global.head = new_node;
 		}
 }
-
-

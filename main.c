@@ -12,9 +12,10 @@ gvar_t global;
 int main(int argc, char **argv)
 {
 	FILE *file;
+
 	global.head = NULL;
+
 	global.line = NULL;
-	global.isStack = 1;
 
 	if (argc != 2)
 	{
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * process - processes the monty file line by line
+ * tokenize_and_execute - processes the monty file line by line
  */
 void tokenize_and_execute(void)
 {
@@ -63,7 +64,7 @@ void tokenize_and_execute(void)
 
 
 /**
- * cleanup - Function to clean up stack and file
+ * free_list - Function to clean up stack and file
  */
 void free_list(void)
 {
