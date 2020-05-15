@@ -18,7 +18,7 @@ void execute(char *opcode, unsigned int line_number)
 		{"add", add},
 		{"sub", sub},
 		{"div", op_div},
-		{"m", mul},
+		{"mul", mul},
 		{"mod", mod},
 
 		{NULL, NULL}
