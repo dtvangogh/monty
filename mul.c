@@ -20,7 +20,7 @@ void mul(stack_t **head, unsigned int line_number)
 	temp2 = temp->next;
 	t1_value = temp->n;
 	t2_value = temp2->n;
-	product = t1_value * t2_value;
+	product = t2_value * t1_value;
 
 	temp = (*head); /** answer correct without temp, but memory errors without it **/
 	*head = (*head)->next;

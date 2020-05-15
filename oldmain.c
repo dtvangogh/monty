@@ -12,10 +12,9 @@ gvar_t global;
 int main(int argc, char **argv)
 {
 	FILE *file;
-
 	global.head = NULL;
-
 	global.line = NULL;
+	global.isStack = 1;
 
 	if (argc != 2)
 	{
@@ -25,7 +24,7 @@ int main(int argc, char **argv)
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	global.file = file;
@@ -36,7 +35,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * tokenize_and_execute - processes the monty file line by line
+ * process - processes the monty file line by line
  */
 void tokenize_and_execute(void)
 {
@@ -48,11 +47,9 @@ void tokenize_and_execute(void)
 	while ((read = getline(&global.line, &len, global.file)) != -1)
 	{
 		global.line_number++;
-		isolate_number = strtok(global.line, "push \'mul'\'pall'\'pint'\'swap'\'nop'\'pop'\'div'\'dvi '\'nope'\mod'\t\n");
-		printf("isolate_number:%s\n", isolate_number);
+		isolate_number = strtok(global.line, "push \t\n");
 
 		opcode = strtok(global.line, " \t\n");
-		printf("opcode:%s\n", opcode);
 		if (!opcode || opcode[0] == '#')
 			continue;
 		if (strcmp(opcode, "push") == 0)
@@ -66,7 +63,7 @@ void tokenize_and_execute(void)
 
 
 /**
- * free_list - Function to clean up stack and file
+ * cleanup - Function to clean up stack and file
  */
 void free_list(void)
 {
