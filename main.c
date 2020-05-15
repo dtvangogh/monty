@@ -48,11 +48,9 @@ void tokenize_and_execute(void)
 	while ((read = getline(&global.line, &len, global.file)) != -1)
 	{
 		global.line_number++;
-		isolate_number = strtok(global.line, "push \'mul'\'pall'\'pint'\'swap'\'nop'\'pop'\'div'\'dvi '\'nope'\mod'\t\n");
-		printf("isolate_number:%s\n", isolate_number);
+		isolate_number = strtok(global.line, "push \'mul '\'pall '\'pint '\'swap '\'nop '\'pop '\'div '\t\n");
 
 		opcode = strtok(global.line, " \t\n");
-		printf("opcode:%s\n", opcode);
 		if (!opcode || opcode[0] == '#')
 			continue;
 		if (strcmp(opcode, "push") == 0)
