@@ -1,4 +1,4 @@
- push 4
+push 4
 push 12
-nope
+pop
 pall

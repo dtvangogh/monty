@@ -49,10 +49,10 @@ void tokenize_and_execute(void)
 	{
 		global.line_number++;
 		isolate_number = strtok(global.line, "push \'mul '\'pall '\'pint '\'swap '\'nop '\'pop '\t\n");
-		printf("isolate_number:%s\n", isolate_number);
+		/**printf("isolate_number:%s\n", isolate_number); */
 
 		opcode = strtok(global.line, " \t\n");
-		printf("opcode:%s\n", opcode);
+		/**printf("opcode:%s\n", opcode);*/
 		if (!opcode || opcode[0] == '#')
 			continue;
 		if (strcmp(opcode, "push") == 0)

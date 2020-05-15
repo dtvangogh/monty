@@ -11,7 +11,6 @@ void execute(char *opcode, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"pall", pall},
 		{"pint", pint},
-		{"no", nop},
 		{"nop", nop},
 		{"pop", pop},
 		{"swap", swap},
