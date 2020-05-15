@@ -21,8 +21,6 @@ void sub(stack_t **head, unsigned int line_number)
 	t1_value = temp->n;
 	t2_value = temp2->n;
 	subtract = t1_value - t2_value;
-	if (subtract < 0)
-		subtract = subtract * -1;
 
 	temp = (*head); /** answer correct without temp, but memory errors without it **/
 	*head = (*head)->next;

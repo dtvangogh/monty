@@ -1,4 +1,4 @@
-push 4
-push 12
-pop
+push 402
+push 98
+div
 pall
